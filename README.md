@@ -25,16 +25,38 @@ El bot de telegram para el Nodo tiene las siguientes características:
 
 ## Bot Twitter 🐦
 
-Crear un Bot Twitter es un proceso (en mi experiencia) que demora algunos días en habilitarse desde el portal https://developer.twitter.com/en
+Crear un Bot Twitter es un proceso (en mi experiencia) que demora algunos días en habilitarse desde el portal https://developer.twitter.com/en y realizar las habilitaciones para publicar tuits y modificar el perfil.
+
 
 La idea central de este bot es brindar un servicio automatizado que recopile información directamente del blockchain como:
-	- Blockclock. 
-	  Muestra el último bloque verificado. 
-	- Price.
-	  Muestra el precio de bitcoin.
-	- Un reporte hecho cada 12 hrs. (número de transacciones, hashrate, fee promedio) 
-	- Ideas:
-		- Movimiento de ballenas.
-		- Reporte análisis onchain.
-		- Estado de la red (número de nodos)
-		- Jugar con facturas lightning.
+  - Blockclock -  Muestra el último bloque verificado.
+  - Precio - Muestra el precio de bitcoin.
+  - Un reporte hecho cada 12 hrs. (número de transacciones, hashrate, fee promedio).
+  - **Ideas** (a evalúar):
+    - Movimiento de ballenas.
+    - Reporte análisis onchain.
+    - Estado de la red (número de nodos)
+    - Jugar con facturas lightning.
+
+
+## Pre-instalación 
+
+Crea un entorno virtual (venv), lo activas, clonas el repositorio e instalas (con pip) los requerimientos.
+
+``` sh
+$python -m venv bots
+$cd bots/
+$source bin/activate
+(bots)$git clone https://github.com/jpcrespo/bitbolnode.git
+(bots)$cd bitbolnode
+(bots)$pip install requerimientos.txt
+```
+> **Note**
+> Para crear los bots e interactuar con los distintos APIs (telegram/twitter) necesitamos almacenar los tokens (llaves) de acceso.
+>En el caso de Telegram es una sola clave. Además que también guardamos el id «master» para verificar accesos privilegiados.En el caso de Twitter son 4 claves.
+> Estas se guardan en un archivo de texto plano y se explicitan en el '.gitignore' (es prudente no compartirlas).
+
+```
+
+
+
