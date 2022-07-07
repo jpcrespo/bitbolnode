@@ -58,7 +58,7 @@ $source bin/activate
 > - En el caso de Telegram es una sola clave. Además que también guardamos el id «master» para verificar accesos privilegiados. 
 > 
 > - En el caso de Twitter son 4 claves (Bearer es opcional).
-> Estas se guardan en un archivo de texto plano y se explicitan en el '.gitignore' (es prudente no compartirlas).
+> Estas se guardan en un archivo de texto plano en la carpeta app. Finalmente se explicita en el '.gitignore' (es prudente no compartirlas).
 
 ![ejemplo](env.png)
 
