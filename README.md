@@ -39,7 +39,7 @@ La idea central de este bot es brindar un servicio automatizado que recopile inf
     - Jugar con facturas lightning.
 
 
-## Pre-instalación 
+## Instalación 
 
 Crea un entorno virtual (venv), lo activas, clonas el repositorio e instalas (con pip) los requerimientos.
 
@@ -52,11 +52,8 @@ $source bin/activate
 (bots)$pip install requerimientos.txt
 ```
 > **Note**
+> 
 > Para crear los bots e interactuar con los distintos APIs (telegram/twitter) necesitamos almacenar los tokens (llaves) de acceso.
 >En el caso de Telegram es una sola clave. Además que también guardamos el id «master» para verificar accesos privilegiados.En el caso de Twitter son 4 claves.
 > Estas se guardan en un archivo de texto plano y se explicitan en el '.gitignore' (es prudente no compartirlas).
-
-```
-
-
 
