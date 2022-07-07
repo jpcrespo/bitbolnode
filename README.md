@@ -53,7 +53,12 @@ $source bin/activate
 ```
 > **Note**
 > 
-> Para crear los bots e interactuar con los distintos APIs (telegram/twitter) necesitamos almacenar los tokens (llaves) de acceso.
->En el caso de Telegram es una sola clave. Además que también guardamos el id «master» para verificar accesos privilegiados.En el caso de Twitter son 4 claves.
+> Para crear los bots e interactuar con los distintos APIs (telegram/twitter) necesitamos almacenar los tokens (llaves) de acceso:
+> 
+> - En el caso de Telegram es una sola clave. Además que también guardamos el id «master» para verificar accesos privilegiados. 
+> 
+> - En el caso de Twitter son 4 claves (Bearer es opcional).
 > Estas se guardan en un archivo de texto plano y se explicitan en el '.gitignore' (es prudente no compartirlas).
+
+![ejemplo](env.png)
 
