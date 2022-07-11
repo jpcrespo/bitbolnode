@@ -72,9 +72,12 @@ def banner(path=''):
    os.remove(path+'out.png')
    tw_user = '🇧🇴⚡₿it₿ol-node | in ⌚⛓️'+blockclock() 
    api.update_profile(name=tw_user)
+<<<<<<< HEAD:app/lastfollowes.py
 
 
 
+=======
+>>>>>>> bf36ee4... win state:app/lastfollowers.py
 
 
 

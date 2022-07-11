@@ -38,6 +38,10 @@ La idea central de este bot es brindar un servicio automatizado que recopile inf
     - Estado de la red (número de nodos)
     - Jugar con facturas lightning.
 
+- Twitter profile Responsive:
+  - Cambia el nombre cuando se verifica un nuevo bloque.
+  - Cambia un banner con la foto de los últimos 5 seguidores
+  - automático cada 10min. 
 
 ## Instalación 
 

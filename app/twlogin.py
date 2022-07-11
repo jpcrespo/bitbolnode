@@ -7,7 +7,11 @@ from dotenv import load_dotenv
 import os, tweepy
 
 def login(path=''):
+<<<<<<< HEAD
     load_dotenv(path+'.env')
+=======
+    load_dotenv('.env')
+>>>>>>> bf36ee4... win state
 
     API_KEY = os.getenv('API_Key')
     API_SECRET_KEY = os.getenv('API_SECRET_KEY')
@@ -29,9 +33,14 @@ def login(path=''):
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
     p1 = '/home/ghost/Desktop/proyectos/'
     login(path=p1)
 
 
+=======
+    path = '/home/ghost/Desktop/proyectos/'
+    login()
+>>>>>>> bf36ee4... win state
 
 
