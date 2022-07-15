@@ -48,7 +48,7 @@ def banner(path=''):
 #Como vamos a añadir a los ultimos 5 usuarios
 #Descargamos la imagen y nombre de los ultimos 5 followers para crear imagen
    api = login('/home/ghost/Desktop/proyectos/')
-   user = api.get_user(screen_name='boliviabitcoin')
+   user = api.get_user(screen_name='elnodobtc')
    i=1
    for follower in user.followers()[:5]:
       target  = follower._json['profile_image_url']
@@ -74,4 +74,6 @@ def banner(path=''):
    api.update_profile(name=tw_user)
 
 
-banner(path='/home/ghost/Desktop/proyectos/bots/bitbolnode/app/')
+if __name__=='__main__':
+   p1='/home/ghost/Desktop/proyectos/bots/bitbolnode/app/'
+   banner(path=p1)

@@ -8,8 +8,6 @@ import os, tweepy
 
 def login(path=''):
     load_dotenv(path+'.env')
-
-
     API_KEY = os.getenv('API_Key')
     API_SECRET_KEY = os.getenv('API_SECRET_KEY')
     ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
