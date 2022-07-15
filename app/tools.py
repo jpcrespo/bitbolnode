@@ -3,7 +3,7 @@ from datetime import datetime as dt
 from dotenv import load_dotenv
 
 
-path='app/' 
+path='/home/ghost/Desktop/proyectos/'
 load_dotenv(path+'.env')
 IP_nodo = os.getenv('IP_nodo')
 
@@ -71,10 +71,5 @@ def fees():
 
 
 
-<<<<<<< HEAD
 if __name__=='__main__':
    print(fees())
-=======
-if __name__=='__main__':   
-   print(hash_rate())
->>>>>>> 6ef9ea0 (rpi copy)

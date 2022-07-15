@@ -62,7 +62,7 @@ def first_up(path=''):
             ids.append(aux)
    #finalmente guardamos el log 
       np.save(path+'respuestas.npy', ids)
-   
+
 
 
 
@@ -104,11 +104,11 @@ def main(p1=''):
 if __name__ == "__main__":
    #para automatizar un proceso este método es sugerido en python:
    #llamar a una función main() con excepciones para volver a ejecutar el programa.
-   p1='app/'
-   api = login(path=p1)
+   p_env='/home/ghost/Desktop/proyectos/'
+   api = login(path=p_env)
    while True:
       try:
-         main(p1=p1)
+         main(p1='/home/ghost/Desktop/proyectos/bots/bitbolnode/app/')
       except KeyboardInterrupt:
          print('Exiting by user request.\n')
          sys.exit(0)
