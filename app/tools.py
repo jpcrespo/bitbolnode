@@ -71,5 +71,10 @@ def fees():
 
 
 
+<<<<<<< HEAD
 if __name__=='__main__':
    print(fees())
+=======
+if __name__=='__main__':   
+   print(hash_rate())
+>>>>>>> 6ef9ea0 (rpi copy)
