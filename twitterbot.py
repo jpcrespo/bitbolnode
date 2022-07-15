@@ -22,10 +22,10 @@ def execute(order):
       elif word in ['hash_rate','hash-rate']:
          api.update_status(status='@'+order._json['user']['screen_name']+' '+hash_rate(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
-      elif word == 'fees':
+      elif word in ['fee','fees']:
          api.update_status(status='@'+order._json['user']['screen_name']+' '+fees(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
-      elif word in ['precio','btc_price','bitcoin_precio']:
+      elif word in ['precio','btc_price','bitcoin_precio','price']:
          api.update_status(status='@'+order._json['user']['screen_name']+' '+precio(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
          #retorna el id donde responde, o False en caso de que no haya un comando.
@@ -113,4 +113,4 @@ if __name__ == "__main__":
          print('Exiting by user request.\n')
          sys.exit(0)
       finally:
-         sleep(240)
+         sleep(90)
