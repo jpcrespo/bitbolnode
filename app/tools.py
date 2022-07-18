@@ -3,8 +3,8 @@ from datetime import datetime as dt
 from dotenv import load_dotenv
 
 
-path='/home/ghost/Desktop/proyectos/'
-load_dotenv(path+'.env')
+#path='/home/ghost/Desktop/proyectos/'
+load_dotenv('.env')
 IP_nodo = os.getenv('IP_nodo')
 
 
@@ -44,16 +44,35 @@ def blockclock():
       rspn += blcl[i]
    return rspn
 
-# def tx_vol():
-#    url = 'http://192.168.1.2:3002/api/tx/volume/24h'
-#    r = requests.get(url)
-#    return 'Transacciones últimas 24h: '+ str(r.json()['24h'])
+
+def halv_time():
+   halving_in = 630000
+   halving_out = 840000
+   url = IP_nodo+'/api/blocks/tip/height'
+   r = requests.get(url)
+   c = int(r.text) - halving_in
+   d = halving_out - halving_in
+   halv = round(10*c/d)
+   progress = ''
+   for a in range(0,10):
+      if a<halv:
+         progress += '█'
+      else: 
+         progress += '▒'
+   progress += ' '
+   return progress+str(round(100*c/d,2))+'%'
+
+
 
 
 def btc_supply():
+   total_supply = 21_000_000
    url = IP_nodo+'/api/blockchain/coins'
    r = requests.get(url)
-   return r.text
+   a = float(r.text)
+   b = round(100*a/total_supply,3)
+   return str(a)+' ('+str(b)+'%)'
+
 
 def hash_rate():
    url = IP_nodo+'/api/mining/hashrate'
@@ -72,4 +91,4 @@ def fees():
 
 
 if __name__=='__main__':
-   print(fees())
+   print(halv_time())

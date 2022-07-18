@@ -4,31 +4,33 @@
 
 from time import sleep
 from app.twlogin import login
-from app.tools import blockclock, precio , btc_supply, hash_rate, fees
+from app.tools import blockclock, precio, btc_supply, hash_rate, fees, halv_time
 import numpy as np
 import sys, os
-
 
 def execute(order):
    txt = order._json['full_text'].lower()
    txt_split= txt.split(" ")    #cambia este valor segun el nombre @user
    for word in txt_split:
       if word in ['blockclock','btcclock','btc_clock','clock','tic']:
-         api.update_status(status='@'+order._json['user']['screen_name']+' '+blockclock(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+         api.update_status(status='👋 @'+order._json['user']['screen_name']+' ➡️ El ⌚️ tiempo en #Bitcoin '+blockclock()+' 📌',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
       elif word in ['btc_supply','supply','emitido','btc_emitido','btc_emision','emision','emision_btc']:
-         api.update_status(status='@'+order._json['user']['screen_name']+' '+btc_supply(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+         api.update_status(status='👋 @'+order._json['user']['screen_name']+' El bitcoin circulante ahora es: ₿'+btc_supply(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
-      elif word in ['hash_rate','hash-rate']:
-         api.update_status(status='@'+order._json['user']['screen_name']+' '+hash_rate(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+      elif word in ['hash_rate','hash-rate','hash']:
+         api.update_status(status='👋 @'+order._json['user']['screen_name']+' el Hash rate estimado es: '+hash_rate()+' E hash/s',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
-      elif word in ['fee','fees']:
-         api.update_status(status='@'+order._json['user']['screen_name']+' '+fees(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+      elif word in ['fee','fees','comision','comisiones']:
+         api.update_status(status='👋 @'+order._json['user']['screen_name']+' El fee estimado es: '+fees(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
       elif word in ['precio','btc_price','bitcoin_precio','price']:
-         api.update_status(status='@'+order._json['user']['screen_name']+' '+precio(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+         api.update_status(status='👋 @'+order._json['user']['screen_name']+' El precio de  bitcoin: '+precio()+' USD',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
          #retorna el id donde responde, o False en caso de que no haya un comando.
+      elif word in ['halving','halv']
+         api.update_status(status=halv_time()+' para el siguiente Halving (4 abril \'24)',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+         return order._json['id_str']
    return False
 
 
