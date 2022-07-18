@@ -48,7 +48,7 @@ def banner(path=''):
 #Como vamos a añadir a los ultimos 5 usuarios
 #Descargamos la imagen y nombre de los ultimos 5 followers para crear imagen
    api = login('/home/ghost/Desktop/proyectos/')
-   user = api.get_user(screen_name='elnodobtc')
+   user = api.get_user(screen_name='nodobtcbot')
    i=1
    for follower in user.followers()[:5]:
       target  = follower._json['profile_image_url']
@@ -70,7 +70,7 @@ def banner(path=''):
    image.save(path+'out.png')
    api.update_profile_banner(path+'out.png')
    os.remove(path+'out.png')
-   tw_user = '🇧🇴⚡₿it₿ol-node | in ⌚⛓️'+blockclock() 
+   tw_user = '⚡₿it₿ol🇧🇴 | in ⌚⛓️'+blockclock() 
    api.update_profile(name=tw_user)
 
 
