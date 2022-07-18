@@ -3,8 +3,8 @@ from datetime import datetime as dt
 from dotenv import load_dotenv
 
 
-#path='/home/ghost/Desktop/proyectos/'
-load_dotenv('.env')
+path='/home/ghost/Desktop/proyectos/'
+load_dotenv(path+'.env')
 IP_nodo = os.getenv('IP_nodo')
 
 
