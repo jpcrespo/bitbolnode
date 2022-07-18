@@ -16,7 +16,7 @@ def execute(order):
          api.update_status(status='👋 @'+order._json['user']['screen_name']+' ➡️ El ⌚️ tiempo en #Bitcoin '+blockclock()+' 📌',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
       elif word in ['btc_supply','supply','emitido','btc_emitido','btc_emision','emision','emision_btc']:
-         api.update_status(status='👋 @'+order._json['user']['screen_name']+' El bitcoin circulante ahora es: ₿'+btc_supply(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+         api.update_status(status='👋 @'+order._json['user']['screen_name']+' El bitcoin circulante ahora es: ₿ '+btc_supply(),in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
       elif word in ['hash_rate','hash-rate','hash']:
          api.update_status(status='👋 @'+order._json['user']['screen_name']+' el Hash rate estimado es: '+hash_rate()+' E hash/s',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
@@ -29,7 +29,7 @@ def execute(order):
          return order._json['id_str']
          #retorna el id donde responde, o False en caso de que no haya un comando.
       elif word in ['halving','halv']:
-         api.update_status(status=halv_time()+' para el siguiente Halving (4 abril \'24)',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
+         api.update_status(status=halv_time()+' para el siguiente Halving (Estimado el 4 abril 2024)',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
    return False
 
