@@ -28,7 +28,7 @@ def execute(order):
          api.update_status(status='👋 @'+order._json['user']['screen_name']+' El precio de  bitcoin: '+precio()+' USD',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
          #retorna el id donde responde, o False en caso de que no haya un comando.
-      elif word in ['halving','halv']
+      elif word in ['halving','halv']:
          api.update_status(status=halv_time()+' para el siguiente Halving (4 abril \'24)',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
    return False
