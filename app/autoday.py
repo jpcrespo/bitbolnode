@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 from datetime import datetime as dt
 from twlogin import login
 
-#path='/home/ghost/Desktop/proyectos/'
-load_dotenv('.env')
+path='/home/ghost/Desktop/proyectos/'
+load_dotenv(path+'.env')
 IP_nodo = os.getenv('IP_nodo')
 
 hoy = dt.strftime(dt.today(), '%d/%b/%Y')
@@ -18,7 +18,9 @@ hoy = dt.strftime(dt.today(), '%d/%b/%Y')
 #El archivo estados.npy se creo con un array de un solo elemento:
 #el ultimo precio diario registrado 
 
-price = np.load('estados.npy',allow_pickle='TRUE').tolist()
+path1 = '/home/ghost/Desktop/proyectos/bots/bitbolnode/app/'
+
+price = np.load(path1+'estados.npy',allow_pickle='TRUE').tolist()
 
 
 
@@ -35,22 +37,22 @@ if aux > price:
 else:
   message += '\n➯ Precio: 📉 1 ₿tc = '+str(round(aux,2))+' USD'
 
-np.save('estados.npy',aux)
+np.save(path1+'estados.npy',aux)
 
 
-url = IP_nodo+'/api/blockchain/coins'
-r = requests.get(url)
-a = float(r.text)
+url1 = IP_nodo+'/api/blockchain/coins'
+r1 = requests.get(url1)
+a = float(r1.text)
 b = round(100*a/21_000_000,5)
 
 message += '\n➯ ₿tc emitido: '+str(round(a,3))+' ('+str(b)+'%)'
 
 
-url = 'https://bitcoinexplorer.org/api/tx/volume/24h'
-r = requests.get(url)
-aux = r.json()['24h']
+url2 = 'https://bitcoinexplorer.org/api/tx/volume/24h'
+r2 = requests.get(url2)
+aux1 = r2.json()['24h']
 
-message += '\n➯ Tx últimas 24h: '+str(aux)
+message += '\n➯ Tx últimas 24h: '+str(aux1)
 
 
 
@@ -78,4 +80,4 @@ api = login()
 
 api.update_status(status=message)
 
-print(message)
+#print(message)
