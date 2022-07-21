@@ -23,8 +23,8 @@ path1 = '/home/ghost/Desktop/proyectos/bots/bitbolnode/app/'
 if not os.path.exists(path1+'estados.npy'):
   url = 'http://api.coindesk.com/v1/bpi/currentprice.json'
   r = requests.get(url)
-  aux = float(re.sub(',','', r.json()['bpi']['USD']['rate']))
-  np.save(path1+'estados.npy', aux)
+  price = float(re.sub(',','', r.json()['bpi']['USD']['rate']))
+  np.save(path1+'estados.npy', price)
 else:
   price = np.load(path1+'estados.npy',allow_pickle='TRUE').tolist()
 
