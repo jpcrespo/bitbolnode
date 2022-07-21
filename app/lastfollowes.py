@@ -38,7 +38,7 @@ def banner(path=''):
    TEXT_SIZE = 30
    TEXT_PADDING_HOR = 45
    TEXT_PADDING_VERT = 130
-   IMG_TEXT = 'A special greeting for my\n\nlast 5 followers, u rocks!'
+   IMG_TEXT = 'A special thanks for my\n\nlast 5 followers, u rocks!'
 
    draw = ImageDraw.Draw(image)
    font = ImageFont.truetype(TEXT_FONT_TYPE, TEXT_SIZE)

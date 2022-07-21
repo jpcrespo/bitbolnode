@@ -10,8 +10,12 @@ import sys, os
 
 def execute(order):
    txt = order._json['full_text'].lower()
-   txt_split= txt.split(" ")    #cambia este valor segun el nombre @user
-   for word in txt_split:
+   txt_split= txt.split(" ")   
+   link = [re.sub('http\S+','',word) for word in txt_split]
+   signs =  '[/#@\'!"$%&()*+,-.:\;<=>?¿^_`{|}~]'
+   link_signs = [re.sub(signs,'',word) for word in link]
+    
+   for word in link_signs:
       if word in ['blockclock','btcclock','btc_clock','clock','tic']:
          api.update_status(status='👋 @'+order._json['user']['screen_name']+' ➡️ El ⌚️ tiempo en #Bitcoin '+blockclock()+' 📌',in_reply_to_status_id=order._json['id_str'],auto_populate_reply_metadata=True)
          return order._json['id_str']
@@ -98,7 +102,10 @@ def main(p1=''):
          #para q vaya procesando por bloques de 20.
          historial = api.mentions_timeline(tweet_mode='extended',since_id=resp[-1])
          for order in historial[::-1]:
-            resp.append(execute(order))   
+            aux = execute(order)
+            if aux:
+               resp.append(execute(order))
+            else: pass    
       np.save(p1+'respuestas.npy', resp)
 
 
