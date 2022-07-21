@@ -6,7 +6,7 @@ from time import sleep
 from app.twlogin import login
 from app.tools import blockclock, precio, btc_supply, hash_rate, fees, halv_time
 import numpy as np
-import sys, os
+import sys, os, re
 
 def execute(order):
    txt = order._json['full_text'].lower()
