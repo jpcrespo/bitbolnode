@@ -10,9 +10,10 @@ import sys, os, re
 
 def execute(order):
    txt = order._json['full_text'].lower()
-   txt_split= txt.split(" ")   
+   aux_txt = txt.replace('\n',' ')
+   txt_split= aux_txt.split(" ")   
    link = [re.sub('http\S+','',word) for word in txt_split]
-   signs =  '[/#@\'!"$%&()*+,-.:\;<=>?¿^_`{|}~]'
+   signs =  '[/#@\'!"$%&()*+,-.:\;<=>?¿^`{|}~]'
    link_signs = [re.sub(signs,'',word) for word in link]
     
    for word in link_signs:
