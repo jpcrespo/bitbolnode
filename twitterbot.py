@@ -104,7 +104,7 @@ def main(p1=''):
          for order in historial[::-1]:
             aux = execute(order)
             if aux:
-               resp.append(execute(order))
+               resp.append(aux)
             else: pass    
       np.save(p1+'respuestas.npy', resp)
 
